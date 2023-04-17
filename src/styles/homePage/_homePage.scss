@@ -1,0 +1,35 @@
+.Home {
+    .Shape3 {
+
+        z-index: 1;
+        overflow: hidden;
+        // animation: shapeAnimation 15s linear infinite;
+        opacity: 0.6;
+        width: fit-content;
+    }
+
+    .Shape {
+        width: fit-content;
+    }
+}
+
+// shape animation
+@keyframes shapeAnimation {
+    0% {
+        left: 30%;
+        top: 0;
+        rotate: 0;
+    }
+
+    50% {
+        left: 0;
+        top: 5%;
+        rotate: 360deg;
+    }
+
+    100% {
+        left: 30%;
+        top: 0;
+        rotate: 0;
+    }
+}
