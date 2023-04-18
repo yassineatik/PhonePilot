@@ -3,9 +3,9 @@ import { OutlineButton } from '../core/Buttons'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, PresentationControls } from '@react-three/drei'
 import { Stage } from '@react-three/drei/core';
-import { Material, MeshBasicMaterial } from 'three';
+import { DirectionalLight, Material, MeshBasicMaterial } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import WebGiViewer from '../webGiViewer';
+import Model from '../Office';
 
 
 
@@ -13,14 +13,6 @@ import WebGiViewer from '../webGiViewer';
 
 
 const Landing = () => {
-    const gltfloader = new GLTFLoader()
-    // load the gltf model
-    const [scene, setScene] = React.useState<any>(null)
-    React.useEffect(() => {
-        gltfloader.load('/3d/scene.gltf', (gltf) => {
-            setScene(gltf.scene)
-        })
-    }, [gltfloader])
 
 
     return (
@@ -32,25 +24,23 @@ const Landing = () => {
                 <OutlineButton text="Signup Now" />
             </div>
             <div className="Right">
-                {/* <Canvas>
-                    <Suspense fallback={null}>
-                        <Stage
-                            environment="city"
-                            intensity={1}
-                        >
-                            <mesh
-                                position={[0, 0, 0]}
-                                rotation={[0, 0, 0]}
-                                scale={[1, 1, 1]}
-                                castShadow
-                                receiveShadow
-                            >
-                                <primitive object={scene} />
-                            </mesh>
-                        </Stage>
+                <Canvas
+                // frameloop='demand'
+                >
+                    <Suspense>
+
+
+                        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.8}
+                            // scale={1}
+                            maxPolarAngle={Math.PI / 2}
+                        // minPolarAngle={Math.PI / 3}
+                        />
+                        {/* <directionalLight position={[0, 10, 5]} intensity={0.9} /> */}
+                        <hemisphereLight intensity={0.7} />
+                        <pointLight intensity={1} />
+                        <Model />
                     </Suspense>
-                </Canvas> */}
-                {/* <WebGiViewer /> */}
+                </Canvas>
 
             </div>
         </div >

@@ -29,8 +29,6 @@
     "webgl": "^0.0.7"
   },
   "devDependencies": {
-    "file-loader": "^6.2.0",
-    "webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-0.7.4.tgz",
-    "@types/webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-types-0.7.4.tgz"
+    "file-loader": "^6.2.0"
   }
 }
