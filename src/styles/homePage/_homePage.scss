@@ -1,6 +1,5 @@
 .Home {
     .Shape3 {
-
         z-index: 1;
         overflow: hidden;
         // animation: shapeAnimation 15s linear infinite;
@@ -10,6 +9,10 @@
 
     .Shape {
         width: fit-content;
+    }
+
+    .Logo {
+        cursor: pointer;
     }
 }
 
@@ -33,3 +36,5 @@
         rotate: 0;
     }
 }
+
+@import 'landing';

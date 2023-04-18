@@ -13,6 +13,29 @@ $C1 : #000000;
 $C2 : #F6F662;
 $C3 : #B3B3B3;
 $C4 : #666647;
+$C5 : rgba(247, 247, 98, 0.79);
+
+.C1 {
+  color: $C1 !important;
+}
+
+.C2 {
+  color: $C2 !important;
+}
+
+.C3 {
+  color: $C3 !important;
+}
+
+.C4 {
+  color: $C4 !important;
+}
+
+.C5 {
+  color: $C5 !important;
+}
+
+
 
 .Page {
   background-color: #000000;
@@ -20,6 +43,7 @@ $C4 : #666647;
   min-height: 100vh;
   position: relative;
   overflow: hidden;
+  padding: 0.2rem 3rem;
 
   .Shape {
     z-index: 1;
@@ -49,6 +73,20 @@ $C4 : #666647;
     background-color: #000000;
     color: $color;
     outline: 1px $color solid;
+  }
+}
+
+.Outline {
+  @include PrimaryButton($C5);
+  background-color: transparent;
+  border: 1px solid $C5;
+  color: $C5;
+  width: fit-content;
+  text-transform: capitalize;
+
+  &:hover {
+    background-color: $C5;
+    color: #000000;
   }
 }
 

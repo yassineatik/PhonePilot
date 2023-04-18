@@ -1,0 +1,11 @@
+Model Information:
+* title:	Retro Phone
+* source:	https://sketchfab.com/3d-models/retro-phone-bc379c569b8e4c34a1f9e64e626fe66c
+* author:	Ian Gibb (https://sketchfab.com/slyguy)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Retro Phone" (https://sketchfab.com/3d-models/retro-phone-bc379c569b8e4c34a1f9e64e626fe66c) by Ian Gibb (https://sketchfab.com/slyguy) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
