@@ -32,8 +32,8 @@ const Landing = () => {
 
                         <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.8}
                             // scale={1}
-                            maxPolarAngle={Math.PI / 2}
-                        // minPolarAngle={Math.PI / 3}
+                            maxPolarAngle={Math.PI / 1.6}
+                            minPolarAngle={Math.PI / 3.5}
                         />
                         {/* <directionalLight position={[0, 10, 5]} intensity={0.9} /> */}
                         <hemisphereLight intensity={0.7} />

@@ -4,7 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 
 const ShapeMotion = (props: any) => {
-    console.log(props.ref)
+    // console.log(props.ref)
     return (
         <motion.div className='box1' drag
             dragSnapToOrigin={true}
