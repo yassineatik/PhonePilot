@@ -10,7 +10,7 @@ const ShapeMotion = (props: any) => {
             dragSnapToOrigin={true}
             {...props}
             dragElastic={0.2}
-            whileTap={{ scale: 1.2, opacity: 1, zIndex: 1000, cursor: 'grabbing' }}
+            whileTap={{ scale: 1.2, opacity: 1, cursor: 'grabbing' }}
             whileHover={{
                 cursor: 'grab',
                 scale: 1.2,

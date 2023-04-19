@@ -1,0 +1,86 @@
+.Cards {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+
+    .box1:first-of-type {
+        width: fit-content;
+        height: fit-content;
+        position: absolute;
+        top: 45%;
+        z-index: 1;
+        left: 60%;
+        opacity: 1 !important;
+    }
+
+    .box1:last-of-type {
+        width: fit-content;
+        height: fit-content;
+        position: absolute;
+        top: 90%;
+        z-index: 1;
+        left: 35%;
+    }
+
+
+    .Row {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+
+        .LastShape {
+            width: fit-content;
+            height: fit-content;
+            position: absolute;
+            top: 70%;
+            z-index: 0;
+            left: 5%;
+            opacity: 0.8 !important;
+
+            img {
+                width: 200px !important;
+                height: 100%;
+            }
+        }
+
+        .Card {
+            padding: 1rem;
+            border-radius: 25px;
+            max-width: 250px;
+            min-width: 250px;
+            min-height: 250px;
+            max-height: 250px;
+            background: linear-gradient(111.49deg, rgba(255, 255, 255, 0.3) -8.95%, rgba(255, 255, 255, 0.01) 114%);
+            /* Note: backdrop-filter has minimal browser support */
+
+            border-radius: 25px;
+            // mix-blend-mode: color;
+            // backdrop-filter: hue-rotate(120deg);
+            // backdrop-filter: contrast(40%) !important;
+            // backdrop-filter: blur(2rem);
+
+
+            .CardIcon {
+                opacity: 1 !important;
+                width: fit-content;
+                height: fit-content;
+
+                img {
+                    width: 200px;
+                    height: 150px;
+                }
+            }
+
+
+            .CardTitle {
+                min-width: 230px;
+                font-size: 1.9rem;
+                line-height: 30px;
+            }
+        }
+
+    }
+}
