@@ -6,20 +6,38 @@
   src: url("/fonts/CoconRegularFont.otf") format("opentype");
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Josefin Sans', sans-serif;
-
-}
-
 // Palette
 $C1 : #000000;
 $C2 : #F6F662;
 $C3 : #B3B3B3;
 $C4 : #666647;
 $C5 : rgba(247, 247, 98, 0.79);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    padding: 1rem;
+    background-color: #0b1120;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $C1 !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba($color: $C5, $alpha: 0.8);
+    border-radius: 10px !important;
+  }
+
+
+}
+
+
 
 .C1 {
   color: $C1 !important;
@@ -50,6 +68,7 @@ $C5 : rgba(247, 247, 98, 0.79);
   position: relative;
   overflow: hidden;
   padding: 0.2rem 3rem;
+
 
   // .Shape {
   //   z-index: 1;
