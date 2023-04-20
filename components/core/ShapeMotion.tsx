@@ -14,6 +14,7 @@ const ShapeMotion = (props: any) => {
             whileHover={{
                 cursor: 'grab',
                 scale: 1.2,
+                opacity: 1
             }}
             whileDrag={{
                 cursor: 'grabbing',

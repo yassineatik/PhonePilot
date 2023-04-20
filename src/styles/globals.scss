@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
 @import url("/fonts/CoconRegularFont.otf");
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @font-face {
   font-family: "Cocon";
@@ -21,7 +22,7 @@ $C5 : rgba(247, 247, 98, 0.79);
 
   ::-webkit-scrollbar {
     width: 10px;
-    padding: 1rem;
+    padding: 1em;
     background-color: #0b1120;
   }
 
@@ -67,7 +68,7 @@ $C5 : rgba(247, 247, 98, 0.79);
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  padding: 0.2rem 3rem;
+  padding: 0.2em 3em;
 
 
   // .Shape {
@@ -83,8 +84,9 @@ $C5 : rgba(247, 247, 98, 0.79);
   border: none;
   border-radius: 25px;
   color: #000000;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
   font-size: 1.2rem;
+  // font-size: 120%;
   font-weight: 100;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -115,7 +117,20 @@ $C5 : rgba(247, 247, 98, 0.79);
   }
 }
 
+.Logo {
+  cursor: pointer;
+}
+
+.box1 {
+  width: fit-content;
+  height: fit-content;
+}
+
+.Button {
+  @include PrimaryButton($C2)
+}
 
 // imports
 @import 'header/header';
 @import 'homePage/homePage';
+@import 'login/login';

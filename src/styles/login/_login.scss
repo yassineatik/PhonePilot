@@ -1,0 +1,98 @@
+.Login {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    min-height: 100vh;
+
+    .LoginContent {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        justify-content: center;
+
+        .box1 {
+            position: absolute;
+            top: -10%;
+            left: 30%;
+            opacity: 0.8 !important;
+
+            img {
+                width: 60%;
+                height: 100%;
+            }
+        }
+
+        .box2 {
+            position: absolute;
+            top: 15%;
+            left: 80%;
+
+            img {
+                width: 70%;
+                height: 100%;
+            }
+        }
+
+        .LoginTitle {
+            font-family: 'Cocon';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 50.43px;
+            line-height: 61px;
+
+            color: #FFFFFF;
+        }
+
+        .LoginForm {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            height: 100%;
+
+            input {
+                min-width: 360px;
+                max-width: 500px;
+                min-height: 45px;
+                padding: 0 20px;
+                border-radius: 18px;
+                border: none;
+                outline: 2px solid #F6F662;
+                background: none;
+                // color: rgba(#FFFFFF, 1);
+                // text-align: center;
+
+                color: rgba(255, 255, 255, 0.8) !important;
+                font-size: 1.15rem;
+            }
+
+            .Button {
+                text-transform: capitalize;
+                font-size: 1.6rem;
+                min-width: 360px !important;
+                max-width: 500px !important;
+                min-height: 45px !important;
+            }
+
+            p {
+                color: rgba($color: #FFFFFF, $alpha: 0.7);
+                font-weight: 300;
+                font-family: 'Raleway';
+                line-height: 23px;
+                font-style: normal;
+                display: flex;
+                flex-direction: row;
+                gap: 0.4rem;
+
+                span {
+                    color: #FFFFFF;
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
