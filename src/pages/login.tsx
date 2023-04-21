@@ -14,14 +14,14 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const Router = useRouter();
 
-    // const handleLogin = async () => {
-    //     try {
-    //         await signInWithEmailAndPassword(auth, email, password);
-    //         Router.push('/dashboard');
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // };
+    const handleLogin = async () => {
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            Router.push('/dashboard');
+        } catch (error) {
+            console.error(error);
+        }
+    };
     return (
         <div className='Login Page'>
             <div className='LoginContent'>
@@ -40,9 +40,9 @@ const Login = () => {
 
                     />
                     <PrimaryButton text="Login"
-                    // onClick={handleLogin}
+                        onClick={handleLogin}
                     />
-                    <p>Don't have an account ? <span
+                    <p>Don&apos;t have an account ? <span
                         onClick={() => Router.push('/register')}
                     >Create Account</span></p>
                 </div>

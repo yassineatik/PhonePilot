@@ -16,54 +16,54 @@ const Register = () => {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const registerWithEmailAndPassword = async (
-    //     fullName: string,
-    //     email: string,
-    //     password: string,
-    //     // id: string
-    // ) => {
-    //     try {
-    //         const { user } = await createUserWithEmailAndPassword(
-    //             auth,
-    //             email,
-    //             password
-    //         );
-    //         await saveUser(fullName, email, user.uid);
-    //         return user;
-    //     } catch (error) {
-    //         console.log("Error registering user:", error);
-    //         throw error;
-    //     }
-    // };
-    // const handleRegister = async () => {
-    //     try {
-    //         await registerWithEmailAndPassword(fullName, email, password);
-    //         // Registration successful, do something here (e.g. redirect to dashboard)
-    //         console.log('resgistered')
-    //     } catch (error) {
-    //         console.log("Error registering user:", error);
-    //     }
-    // };
+    const registerWithEmailAndPassword = async (
+        fullName: string,
+        email: string,
+        password: string,
+        // id: string
+    ) => {
+        try {
+            const { user } = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+            await saveUser(fullName, email, user.uid);
+            return user;
+        } catch (error) {
+            console.log("Error registering user:", error);
+            throw error;
+        }
+    };
+    const handleRegister = async () => {
+        try {
+            await registerWithEmailAndPassword(fullName, email, password);
+            // Registration successful, do something here (e.g. redirect to dashboard)
+            console.log('resgistered')
+        } catch (error) {
+            console.log("Error registering user:", error);
+        }
+    };
 
-    // const saveUser = async (
-    //     fullName: string,
-    //     email: string,
-    //     // id: string,
-    //     uid: string
-    // ) => {
-    //     const usersCollectionRef = collection(db, "users");
-    //     const userDocRef = doc(usersCollectionRef, uid);
-    //     try {
-    //         await setDoc(userDocRef, {
-    //             fullName,
-    //             email,
-    //             // id,
-    //         });
-    //     } catch (error) {
-    //         console.log("Error saving user:", error);
-    //         throw error;
-    //     }
-    // };
+    const saveUser = async (
+        fullName: string,
+        email: string,
+        // id: string,
+        uid: string
+    ) => {
+        const usersCollectionRef = collection(db, "users");
+        const userDocRef = doc(usersCollectionRef, uid);
+        try {
+            await setDoc(userDocRef, {
+                fullName,
+                email,
+                // id,
+            });
+        } catch (error) {
+            console.log("Error saving user:", error);
+            throw error;
+        }
+    };
 
     const Router = useRouter();
     return (
@@ -87,7 +87,9 @@ const Register = () => {
                         onChange={(e) => { setPassword(e.target.value) }}
 
                     />
-                    <PrimaryButton text="Login" />
+                    <PrimaryButton text="Login"
+                        onClick={handleRegister}
+                    />
                     <p>Already have an account ? <span
                         onClick={() => Router.push('/login')}
                     >Login Now</span></p>
