@@ -4,7 +4,7 @@ import ShapeMotion from '../../components/core/ShapeMotion'
 import { PrimaryButton } from '../../components/core/Buttons'
 // import Link from 'react-dom'
 import Router, { useRouter } from 'next/router'
-import { auth } from './lib/firebase';
+import { auth } from './api/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 
