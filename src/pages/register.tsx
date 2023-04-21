@@ -5,8 +5,8 @@ import { PrimaryButton } from '../../components/core/Buttons'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 // import Link from 'react-dom'
 import Router, { useRouter } from 'next/router'
-import { auth } from './lib/firebase';
-import { db } from "./lib/firebase";
+import { auth } from './api/firebase';
+import { db } from "./api/firebase";
 import { collection } from 'firebase/firestore';
 import { doc, setDoc } from "firebase/firestore";
 

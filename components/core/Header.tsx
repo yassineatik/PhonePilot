@@ -10,7 +10,9 @@ const Header = (props: any) => {
     return (
         <div className='Header' ref={props.ref}>
             <Image src="/logo.svg" alt="PhonePilot" width={250} height={100} className='Logo'
-                onClick={() => Router.push('/')}
+                onClick={() => Router.push('/')
+
+                }
             />
             <div className='Actions'>
                 <PrimaryButton text="Login" url="/login"
