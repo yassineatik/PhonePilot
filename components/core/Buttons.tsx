@@ -21,7 +21,8 @@ export const PrimaryButton = (props: any) => {
                 onClick={handleClick}
                 {...props}
 
-            >{props.text}</button>
+            >{props.text}
+            </button>
         </Tilt>
     )
 }
