@@ -32,12 +32,6 @@ const Register = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(async (userCredential) => {
                 const user = userCredential.user;
-                // setUserInformation({
-                //     email: user.email,
-                //     displayName: user.displayName,
-                //     uid: user.uid,
-                //     // accessToken: user.getIdToken,
-                // });
                 await updateProfile(auth.currentUser, { displayName }).then(result => {
                     console.log(result)
                 })

@@ -4,8 +4,8 @@ import Tilt from 'react-parallax-tilt'
 import Router from 'next/router'
 
 export const PrimaryButton = (props: any) => {
-    const [play]: any = useSound('/sounds/hoverSound.mp3', { volume: 0.2 });
-    const [playClick]: any = useSound('/sounds/clickSound.mp3', { volume: 1 });
+    const [play]: any = useSound('/sounds/hoverSound.mp3', { volume: 0.1 });
+    const [playClick]: any = useSound('/sounds/clickSound.mp3', { volume: 0.4 });
     const handleClick = () => {
         playClick();
         if (props.url) {
