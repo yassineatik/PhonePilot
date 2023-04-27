@@ -103,6 +103,20 @@ $C5 : rgba(247, 247, 98, 0.79);
   }
 }
 
+.Logo {
+  cursor: pointer;
+}
+
+.box1 {
+  width: fit-content;
+  height: fit-content;
+}
+
+.Button {
+  @include PrimaryButton($C2)
+}
+
+
 .Outline {
   @include PrimaryButton($C5);
   background-color: transparent;
@@ -115,19 +129,6 @@ $C5 : rgba(247, 247, 98, 0.79);
     background-color: $C5;
     color: #000000;
   }
-}
-
-.Logo {
-  cursor: pointer;
-}
-
-.box1 {
-  width: fit-content;
-  height: fit-content;
-}
-
-.Button {
-  @include PrimaryButton($C2)
 }
 
 // imports

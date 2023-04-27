@@ -14,7 +14,7 @@ export const PrimaryButton = (props: any) => {
     }
     return (
         <Tilt
-            tiltMaxAngleX={40}
+            tiltMaxAngleX={20}
             tiltMaxAngleY={30}
         >
             <button className='Button' onMouseEnter={play}

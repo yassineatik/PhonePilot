@@ -3,69 +3,53 @@ import Header from '../../components/core/Header'
 import ShapeMotion from '../../components/core/ShapeMotion'
 import { PrimaryButton } from '../../components/core/Buttons'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, updateProfile } from 'firebase/auth';
+
 // import Link from 'react-dom'
 import Router, { useRouter } from 'next/router'
 import { auth } from './api/firebase';
 import { db } from "./api/firebase";
 import { collection } from 'firebase/firestore';
 import { doc, setDoc } from "firebase/firestore";
+import { error } from 'console'
 
 
 
 const Register = () => {
-    const [fullName, setFullName] = useState("");
+    const [displayName, setDisplayName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const registerWithEmailAndPassword = async (
-        fullName: string,
-        email: string,
-        password: string,
-        // id: string
-    ) => {
-        try {
-            const { user } = await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
-            await saveUser(fullName, email, user.uid);
-            return user;
-        } catch (error) {
-            console.log("Error registering user:", error);
-            throw error;
-        }
-    };
-    const handleRegister = async () => {
-        try {
-            await registerWithEmailAndPassword(fullName, email, password);
-            // Registration successful, do something here (e.g. redirect to dashboard)
-            console.log('resgistered')
-        } catch (error) {
-            console.log("Error registering user:", error);
-        }
-    };
-
-    const saveUser = async (
-        fullName: string,
-        email: string,
-        // id: string,
-        uid: string
-    ) => {
-        const usersCollectionRef = collection(db, "users");
-        const userDocRef = doc(usersCollectionRef, uid);
-        try {
-            await setDoc(userDocRef, {
-                fullName,
-                email,
-                // id,
-            });
-        } catch (error) {
-            console.log("Error saving user:", error);
-            throw error;
-        }
-    };
-
     const Router = useRouter();
+
+    const [userInformation, setUserInformation] = useState({});
+
+
+
+    // const handleRegister = async () => {
+    const handleRegister = async () => {
+        const auth: any = getAuth();
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(async (userCredential) => {
+                const user = userCredential.user;
+                // setUserInformation({
+                //     email: user.email,
+                //     displayName: user.displayName,
+                //     uid: user.uid,
+                //     // accessToken: user.getIdToken,
+                // });
+                await updateProfile(auth.currentUser, { displayName }).then(result => {
+                    console.log(result)
+                })
+                console.log("user : : : ", user)
+            }).catch(err => {
+                console.log(err)
+            })
+    };
+
+
+
+
     return (
         <div className='Login Page'>
             <div className='LoginContent'>
@@ -77,7 +61,7 @@ const Register = () => {
                 <div className="LoginForm">
                     <h2 className='LoginTitle'>Sign Up</h2>
                     <input placeholder='Full Name' type='text'
-                        onChange={(e) => { setFullName(e.target.value) }}
+                        onChange={(e) => { setDisplayName(e.target.value) }}
                     />
                     <input placeholder='E-mail' type='text'
 
@@ -87,7 +71,7 @@ const Register = () => {
                         onChange={(e) => { setPassword(e.target.value) }}
 
                     />
-                    <PrimaryButton text="Login"
+                    <PrimaryButton text="Register"
                         onClick={handleRegister}
                     />
                     <p>Already have an account ? <span

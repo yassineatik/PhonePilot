@@ -22,6 +22,7 @@
     "next": "13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-firebase-hooks": "^5.1.1",
     "react-parallax-tilt": "^1.7.129",
     "sass": "^1.62.0",
     "three": "^0.151.3",

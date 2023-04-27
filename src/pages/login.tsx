@@ -16,8 +16,9 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            await signInWithEmailAndPassword(auth, email, password);
-            Router.push('/dashboard');
+            const result = await signInWithEmailAndPassword(auth, email, password);
+            // Router.push('/dashboard');
+            console.log(result.user)
         } catch (error) {
             console.error(error);
         }
