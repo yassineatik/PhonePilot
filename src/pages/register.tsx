@@ -1,17 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../components/core/Header'
 import ShapeMotion from '../../components/core/ShapeMotion'
 import { PrimaryButton } from '../../components/core/Buttons'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { getAuth, updateProfile } from 'firebase/auth';
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from './api/firebase'
 // import Link from 'react-dom'
 import Router, { useRouter } from 'next/router'
-import { auth } from './api/firebase';
-import { db } from "./api/firebase";
-import { collection } from 'firebase/firestore';
-import { doc, setDoc } from "firebase/firestore";
-import { error } from 'console'
 
 
 
@@ -20,14 +16,18 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const Router = useRouter();
+    const { user, loading }: any = useAuthState(auth)
 
     const [userInformation, setUserInformation] = useState({});
 
+    if (user) {
+        return <div>Hello {user.displayName}</div>
+    }
 
 
     // const handleRegister = async () => {
     const handleRegister = async () => {
-        const auth: any = getAuth();
+        const auth: any = getAuth()
 
         createUserWithEmailAndPassword(auth, email, password)
             .then(async (userCredential) => {
@@ -36,8 +36,10 @@ const Register = () => {
                     console.log(result)
                 })
                 console.log("user : : : ", user)
+                alert("Register successfully ")
             }).catch(err => {
                 console.log(err)
+                alert(err)
             })
     };
 

@@ -4,8 +4,13 @@ import ShapeMotion from '../../components/core/ShapeMotion'
 import { PrimaryButton } from '../../components/core/Buttons'
 // import Link from 'react-dom'
 import Router, { useRouter } from 'next/router'
-import { auth } from './api/firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+// import { auth } from './api/firebase';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { app } from "./api/firebase"
+// import { error } from 'console'
+import { auth } from "./api/firebase"
+
 
 
 
@@ -13,15 +18,34 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const Router = useRouter();
+    // const auth = getAuth(app);
+    const { user, loading }: any = useAuthState(auth)
 
-    const handleLogin = async () => {
-        try {
-            const result = await signInWithEmailAndPassword(auth, email, password);
-            // Router.push('/dashboard');
-            console.log(result.user)
-        } catch (error) {
-            console.error(error);
-        }
+    if (loading) {
+        return <h1>Loading...</h1>
+    }
+
+    // if (!user) {
+    //     return <div>Hello </div>
+    // }
+
+    const handleLogin = () => {
+        // console.log(auth.currentUser);
+        // try {
+        signInWithEmailAndPassword(auth, email, password).then((userCredentials) => {
+            console.log(userCredentials)
+            if (userCredentials) {
+                Router.push('/dashboard')
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
+
+        // console.log(result.user)
+        // Router.push('/dashboard');
+        // } catch (error) {
+        // console.error(error);
+        // }
     };
     return (
         <div className='Login Page'>

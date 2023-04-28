@@ -161,6 +161,12 @@ $C5 : rgba(247, 247, 98, 0.79);
   }
 }
 
+@media screen and (min-width: 1400px) {
+  html {
+    font-size: 26px !important;
+  }
+}
+
 
 @media screen and (min-width: 1000px) {
   html {
