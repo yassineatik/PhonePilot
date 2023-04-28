@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './api/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 
 
 const dashboard = () => {
