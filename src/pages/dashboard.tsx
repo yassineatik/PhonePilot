@@ -5,7 +5,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import Router, { useRouter } from 'next/router';
 
 
-const dashboard = () => {
+const Dashboard = () => {
     const Router = useRouter()
     const [authUser, setAuthUser]: any = useState()
     useEffect(() => {
@@ -35,4 +35,4 @@ const dashboard = () => {
     }
 }
 
-export default dashboard
+export default Dashboard
