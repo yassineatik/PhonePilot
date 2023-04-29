@@ -1,44 +1,53 @@
-import React, { useState } from 'react'
 import Header from '../../components/core/Header'
 import ShapeMotion from '../../components/core/ShapeMotion'
 import { PrimaryButton } from '../../components/core/Buttons'
-// import Link from 'react-dom'
-import Router, { useRouter } from 'next/router'
-// import { auth } from './api/firebase';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { app } from "./api/firebase"
-// import { error } from 'console'
-import { auth } from "./api/firebase"
+import { ToastContainer, toast } from 'react-toastify';
+import React, { useEffect, useState } from 'react'
+import { auth } from './api/firebase';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import Router, { useRouter } from 'next/router';
+
 
 
 
 
 const Login = () => {
+
+    const Router = useRouter()
+    const [authUser, setAuthUser]: any = useState()
+    useEffect(() => {
+        const listen = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setAuthUser(user)
+                Router.push('/dashboard')
+            }
+            else {
+                setAuthUser(null);
+                // Router.push('/login')
+            }
+        })
+    }, [authUser])
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const Router = useRouter();
-    // const auth = getAuth(app);
-    const { user, loading }: any = useAuthState(auth)
 
-    if (loading) {
-        return <h1>Loading...</h1>
-    }
-
-    // if (!user) {
-    //     return <div>Hello </div>
-    // }
 
     const handleLogin = () => {
-        // console.log(auth.currentUser);
-        // try {
         signInWithEmailAndPassword(auth, email, password).then((userCredentials) => {
             console.log(userCredentials)
             if (userCredentials) {
+                // toast("Wow so easy !")
+                toast.success("Logged In Successfully", {
+                    position: toast.POSITION.TOP_LEFT
+                });
                 Router.push('/dashboard')
             }
         }).catch((error) => {
             console.log(error);
+            toast.error("Email or password is incorrect", {
+                position: toast.POSITION.TOP_LEFT
+            })
+            setPassword('');
         })
 
         // console.log(result.user)
@@ -62,6 +71,7 @@ const Login = () => {
                     />
                     <input placeholder='Password' type='password'
                         onChange={(e) => setPassword(e.target.value)}
+                        value={password}
 
                     />
                     <PrimaryButton text="Login"

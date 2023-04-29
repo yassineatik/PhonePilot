@@ -8,6 +8,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from './api/firebase'
 // import Link from 'react-dom'
 import Router, { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
+import { stringify } from 'querystring'
 
 
 
@@ -28,19 +30,42 @@ const Register = () => {
     // const handleRegister = async () => {
     const handleRegister = async () => {
         const auth: any = getAuth()
+        if (!email || !password || !displayName) {
+            toast.error("All fields are required", {
+                position: toast.POSITION.TOP_LEFT
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(async (userCredential) => {
-                const user = userCredential.user;
-                await updateProfile(auth.currentUser, { displayName }).then(result => {
-                    console.log(result)
-                })
-                console.log("user : : : ", user)
-                alert("Register successfully ")
-            }).catch(err => {
-                console.log(err)
-                alert(err)
             })
+        } else {
+            if (!email.includes("@")) {
+                toast.error("Enter a valid email address", {
+                    position: toast.POSITION.TOP_LEFT
+                })
+                return;
+            }
+            createUserWithEmailAndPassword(auth, email, password)
+                .then(async (userCredential) => {
+                    const user = userCredential.user;
+                    await updateProfile(auth.currentUser, { displayName }).then(result => {
+                        console.log(result)
+                    })
+                    console.log("user : : : ", user)
+                    toast.success("Registered Successfully", {
+                        position: toast.POSITION.TOP_LEFT
+                    });
+                }).catch(err => {
+
+                    // toast.error("err", {
+                    //     position: toast.POSITION.TOP_LEFT
+                    // });
+                    const error = stringify(err);
+                    if (error.includes("email-already-in-use")) {
+                        toast.error("email aready in use", {
+                            position: toast.POSITION.TOP_LEFT
+
+                        })
+                    }
+                })
+        }
     };
 
 
