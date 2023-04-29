@@ -10,7 +10,6 @@ import AddContact from './imports/AddContact';
 import useSound from 'use-sound'
 import { read, utils, writeFile } from 'xlsx';
 
-import { FaFileExport } from 'react-icons/fa'
 import { getDatabase, ref, orderByValue, orderByChild } from "firebase/database";
 
 
@@ -60,14 +59,6 @@ const Contacts = (props: any) => {
             setIsAdding(false)
             playContactAdded();
         })
-    }
-    const exportContacts = () => {
-        const filteredData: any = contacts.map(({ id, user_id, created_at, ...rest }: { id: string, user_id: string, created_at: string, [key: string]: any }) => rest);
-        // console.log(filteredData)
-        const worksheet = utils.json_to_sheet(filteredData);
-        const workbook = utils.book_new();
-        utils.book_append_sheet(workbook, worksheet, "Dates");
-        writeFile(workbook, "Contacts.xlsx", { compression: true });
     }
     // const sortContacts = (prop: string) => {
     function sortContacts(option: any) {
