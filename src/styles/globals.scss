@@ -14,6 +14,11 @@ $C3 : #B3B3B3;
 $C4 : #666647;
 $C5 : rgba(247, 247, 98, 0.79);
 
+// $hover :url("/Pointer.svg");
+$hover :url("/Pointer.svg"),
+auto;
+
+
 * {
   margin: 0;
   padding: 0;
@@ -88,7 +93,7 @@ $C5 : rgba(247, 247, 98, 0.79);
   font-size: 1.2rem;
   // font-size: 120%;
   font-weight: 100;
-  cursor: pointer;
+  cursor: $hover;
   transition: all 0.2s ease;
   text-transform: uppercase;
   font-family: "Cocon";
@@ -154,6 +159,13 @@ $C5 : rgba(247, 247, 98, 0.79);
     transform: translate(-50%, -50%) scale(0.5);
   }
 }
+
+html {
+  cursor: url("/Cursor.svg"), auto;
+  // cursor: url("Cursor.svg");
+}
+
+
 
 @media screen and (min-width: 1200px) {
   html {
