@@ -51,7 +51,7 @@ export const UpdateButton = (props: any) => {
     return (
         <button
             className='Button Update'
-
+            {...props}
         >
             {props.text}
         </button>
@@ -61,7 +61,7 @@ export const DeleteButton = (props: any) => {
     return (
         <button
             className='Button Delete'
-
+            {...props}
         >
             {props.text}
         </button>

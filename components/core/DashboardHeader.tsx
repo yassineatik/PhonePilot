@@ -32,7 +32,9 @@ const DashboardHeader = () => {
     return (
         <div className='DashboardHeader'>
             <Image src="/logo.svg" width={300} height={120} alt='phonepilot' className='Logo Hover' onClick={() => Router.push('/')} />
-            <UserButton name={authUser} />
+            <UserButton name={authUser}
+                
+            />
         </div>
     )
 }
