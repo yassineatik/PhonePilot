@@ -49,13 +49,9 @@ export default function App({ Component, pageProps }: AppProps) {
         variants={{
           initialState: {
             opacity: 0,
-            backgroundColor: "black",
-            // clipPath: "polygon(0 0, 100% 0, 100% 99%, 0 100%)"
           },
           animateState: {
             opacity: 1,
-            backgroundColor: "black",
-            // clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
           },
           exitState: {
 

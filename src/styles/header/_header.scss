@@ -15,3 +15,25 @@
     }
 
 }
+
+.DashboardHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    .UserButton {
+        background-color: transparent;
+        width: fit-content;
+        height: fit-content;
+        font-size: 1.5rem;
+        border: none;
+        outline: 2px $C2 solid;
+        color: white;
+        padding: 0.4rem 1rem 0.4rem 1rem;
+        border-radius: 2rem;
+        font-family: 'Cocon';
+        display: flex;
+        align-items: center;
+    }
+}

@@ -14,9 +14,12 @@ $C3 : #B3B3B3;
 $C4 : #666647;
 $C5 : rgba(247, 247, 98, 0.79);
 
-// $hover :url("/Pointer.svg");
 $hover :url("/Pointer.svg"),
 auto;
+
+.Hover {
+  cursor: $hover;
+}
 
 
 * {
@@ -76,11 +79,6 @@ auto;
   padding: 0.2em 3em;
 
 
-  // .Shape {
-  //   z-index: 1;
-  //   overflow: hidden;
-  //   opacity: 0.6;
-  // }
 }
 
 // mixing for the header buttons
@@ -91,14 +89,11 @@ auto;
   color: #000000;
   padding: 0.5em 1em;
   font-size: 1.2rem;
-  // font-size: 120%;
   font-weight: 100;
   cursor: $hover;
   transition: all 0.2s ease;
   text-transform: uppercase;
   font-family: "Cocon";
-  // src: url("/fonts/CoconRegularFont.otf") format("opentype");
-
 
   &:hover {
     outline: $color;
@@ -109,7 +104,7 @@ auto;
 }
 
 .Logo {
-  cursor: pointer;
+  cursor: $hover !important;
 }
 
 .box1 {
@@ -136,16 +131,40 @@ auto;
   }
 }
 
-// imports
-@import 'header/header';
-@import 'homePage/homePage';
-@import 'login/login';
+.Update {
+  font-size: 1rem;
+  text-transform: capitalize;
+  background-color: #B3B3B3;
+  color: white;
+
+  &:hover {
+    color: $C3;
+    outline: $C3 1.5px solid;
+    border: none;
+    transition: all 50ms;
+  }
+}
+
+.Delete {
+  font-size: 1rem;
+  text-transform: capitalize;
+  background-color: $C4;
+  color: white;
+
+  &:hover {
+    color: $C4;
+    outline: $C4 1.5px solid;
+    border: none;
+    transition: all 50ms;
+    background: none;
+  }
+}
+
+
 
 .logo-animation {
   animation: logo 1s ease forwards;
-  // position: fixed;
   width: 100%;
-  // height: 100%;
 }
 
 @keyframes logo {
@@ -162,7 +181,6 @@ auto;
 
 html {
   cursor: url("/Cursor.svg"), auto;
-  // cursor: url("Cursor.svg");
 }
 
 
@@ -186,8 +204,8 @@ html {
   }
 }
 
-// .ToastContainer {
-// border-radius: 30px !important;
-// padding: 0 !important;
-// gap: 2%;
-// }
+// imports
+@import 'header/header';
+@import 'homePage/homePage';
+@import 'login/login';
+@import 'dashboard/dashboard';

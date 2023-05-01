@@ -21,7 +21,9 @@ const Landing = () => {
                 <h1 className='Title'>The <span className='C2'>Smart</span> Way to <span className='C4'>Manage</span> Your <span className='C5'>Phonebook</span></h1>
                 <p className='Description'>Easily organize your phone contacts with PhonePilot.
                     Stay connected and streamline your communication with our advanced features. </p>
-                <OutlineButton text="Signup Now" />
+                <OutlineButton text="Signup Now"
+                    url="/register"
+                />
             </div>
             <div className="Right">
                 <Canvas

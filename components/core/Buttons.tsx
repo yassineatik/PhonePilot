@@ -30,12 +30,40 @@ export const PrimaryButton = (props: any) => {
 export const OutlineButton = (props: any) => {
     const [play]: any = useSound('/sounds/hoverSound.mp3', { volume: 0.2 });
     const [playClick]: any = useSound('/sounds/clickSound.mp3', { volume: 1 });
+    const handleClick = () => {
+        playClick();
+        if (props.url) {
+            Router.push(props.url)
+        }
+    }
     return (
         <button
             className='Button Outline'
             {...props}
             onMouseEnter={play}
-            onClick={playClick}
+            onClick={handleClick}
+
         >{props.text}</button>
+    )
+}
+
+export const UpdateButton = (props: any) => {
+    return (
+        <button
+            className='Button Update'
+
+        >
+            {props.text}
+        </button>
+    )
+}
+export const DeleteButton = (props: any) => {
+    return (
+        <button
+            className='Button Delete'
+
+        >
+            {props.text}
+        </button>
     )
 }

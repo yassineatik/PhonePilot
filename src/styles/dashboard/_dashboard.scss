@@ -1,0 +1,89 @@
+.Dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 100vh;
+
+    .Contacts {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        max-height: 50%;
+        // overflow-y: auto;
+        border: 0.3px solid $C2;
+        border-radius: 2rem;
+        padding: 1rem;
+        gap: 1rem;
+        max-height: 85vh;
+
+        .Title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .ContactsList {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            max-height: 90vh;
+            overflow: auto;
+            // : :-webkit-scrollbar-button:hidden;
+
+        }
+
+        .Contact {
+            border: 0.3px solid $C2;
+            border-radius: 3rem;
+            padding: 0.2rem 1rem;
+            display: flex;
+            flex-direction: row;
+            color: white;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+
+            .ContactData {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+
+                .ContactInfos {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.1rem;
+
+                    .ContactName {
+                        font-size: 1.1rem;
+                        letter-spacing: 0.1rem;
+                    }
+
+                    .ContactNumber {
+                        letter-spacing: 0.1rem;
+                        font-weight: 600;
+                    }
+                }
+
+                .NumberContainer {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 0.3rem;
+                }
+
+            }
+
+            .Actions {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                align-items: center;
+            }
+
+        }
+    }
+}
