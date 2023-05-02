@@ -49,9 +49,18 @@ const Dashboard = () => {
                 // onDragEnd={(e) => { }}
                 transition={{ type: "spring", stiffness: 200, damping: 10 }}
             >
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="rgba(247, 247, 98, 0.59)" d="M58.3,-19.6C67.5,9.2,61.1,42.3,42.3,55.3C23.4,68.4,-8,61.3,-27,45.5C-46,29.8,-52.6,5.3,-46,-20C-39.4,-45.2,-19.7,-71.2,2.4,-72C24.6,-72.8,49.2,-48.4,58.3,-19.6Z" transform="translate(100 100)" />
+                <svg width="202" height="199" viewBox="0 0 202 199" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.75" fill-rule="evenodd" clip-rule="evenodd" d="M104.043 3.01123C126.669 -0.636344 152.776 -3.6143 170.671 10.7137C188.451 24.9493 186.967 51.6276 192.401 73.7562C197.358 93.9446 204.77 113.561 200.941 133.994C196.728 156.471 189.395 181.243 169.992 193.325C150.857 205.24 126.576 194.762 104.043 194.327C82.1033 193.903 58.8375 201.939 39.9181 190.813C20.3376 179.298 9.34401 157.143 3.47634 135.187C-2.17823 114.028 -1.10797 91.1774 7.96425 71.2454C16.4483 52.6055 34.6866 41.7991 51.378 29.9451C67.8588 18.2406 84.0914 6.22772 104.043 3.01123Z" fill="url(#paint0_radial_53_243)" fill-opacity="0.8" />
+                    <defs>
+                        <radialGradient id="paint0_radial_53_243" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(46.7125 62.1875) rotate(35.3652) scale(165.035 164.238)">
+                            <stop stop-color="#F7F762" />
+                            <stop offset="0.795745" stop-color="#F7F762" stop-opacity="0.4" />
+                            <stop offset="0.898625" stop-color="#E8E856" stop-opacity="0.36" />
+                            <stop offset="1" stop-color="#E8E856" stop-opacity="0.37" />
+                        </radialGradient>
+                    </defs>
                 </svg>
+
             </motion.div>
             <motion.div className='box12 box2' drag
                 dragSnapToOrigin={true}
@@ -68,9 +77,18 @@ const Dashboard = () => {
                 // onDragEnd={(e) => { }}
                 transition={{ type: "spring", stiffness: 200, damping: 10 }}
             >
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#FF0066" d="M36.7,-42.4C48.4,-34,59.3,-23.2,64.6,-9.1C69.8,5.1,69.5,22.5,62.4,37.2C55.3,52,41.5,64.1,25.6,69.5C9.7,74.9,-8.3,73.6,-22.7,66.5C-37.1,59.5,-47.9,46.7,-56.7,32.3C-65.5,17.9,-72.3,2,-73.2,-16.4C-74.1,-34.7,-69,-55.4,-55.8,-63.7C-42.6,-71.9,-21.3,-67.5,-4.4,-62.3C12.5,-57.1,25,-50.9,36.7,-42.4Z" transform="translate(100 100)" />
+                <svg width="237" height="217" viewBox="0 0 237 217" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M127.213 0.00828521C156.95 0.267743 187.644 5.68987 208.82 26.5968C230.116 47.6227 237.947 78.3841 236.91 108.313C235.911 137.167 223.847 164.248 203.348 184.551C182.966 204.737 155.87 216.197 127.213 216.957C97.7374 217.738 69.3715 207.859 46.9375 188.698C22.4224 167.759 0.556644 140.574 0.0112091 108.313C-0.540489 75.6824 19.3433 46.3008 44.1725 25.1602C67.0754 5.65974 97.1514 -0.254012 127.213 0.00828521Z" fill="url(#paint0_radial_110_361)" fill-opacity="0.9" />
+                    <defs>
+                        <radialGradient id="paint0_radial_110_361" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(54.8063 67.8125) rotate(33.411) scale(189.162 183.325)">
+                            <stop stop-color="#B3B3B3" />
+                            <stop offset="0.795745" stop-color="#B3B3B3" stop-opacity="0.26" />
+                            <stop offset="0.898625" stop-color="#B3B3B3" stop-opacity="0.31" />
+                            <stop offset="1" stop-color="#B3B3B3" stop-opacity="0.39" />
+                        </radialGradient>
+                    </defs>
                 </svg>
+
             </motion.div>
 
             <Contacts user={authUser} />
