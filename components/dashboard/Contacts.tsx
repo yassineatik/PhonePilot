@@ -69,7 +69,6 @@ const Contacts = (props: any) => {
                     <span className='AddContact Hover'
                         onClick={() => setIsAdding(true)}
                     >+</span>
-                    {/* <span className='SortContacts'>Sort</span> */}
                 </div>
             </div>
             <div className="ContactsList">
