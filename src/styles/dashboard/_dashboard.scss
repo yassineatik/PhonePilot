@@ -3,6 +3,26 @@
     flex-direction: column;
     justify-content: center;
     max-height: 100vh;
+    position: relative;
+
+    .box12 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: fit-content;
+        height: fit-content;
+        z-index: 0;
+
+        svg {
+            width: 100%;
+        }
+    }
+
+    .box2 {
+        top: 50%;
+        left: 90%;
+        opacity: 0.4 !important;
+    }
 
     .Contacts {
         margin: 0 auto;

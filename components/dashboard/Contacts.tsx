@@ -10,13 +10,20 @@ import ContactField from './imports/ContactField'
 import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { toast } from "react-toastify"
 import AddContact from './imports/AddContact';
+import useSound from 'use-sound'
+
+
 
 
 const Contacts = (props: any) => {
+    const [play]: any = useSound('/sounds/addContact.mp3', { volume: 0.4 });
     const [contacts, setContacts]: any = useState([]);
     const contactsCollection = collection(db, "Contacts");
     const [isReloading, setIsReloading]: any = useState(true);
     const [isAdding, setIsAdding]: any = useState(false);
+    const [playDelete]: any = useSound('/sounds/delete.mp3', { volume: 0.4 });
+    const [playContactAdded]: any = useSound('/sounds/contactAdded.mp3', { volume: 0.2 });
+
 
 
     const id: any = props.user?.uid
@@ -37,26 +44,18 @@ const Contacts = (props: any) => {
             getContacts()
         })
     }, [isReloading])
-    const addContact = () => {
-        addDoc(contactsCollection, {
-            name: "test",
-            number: "06xxxxxxx",
-            user_id: id
-        }).then(() => {
-            setIsReloading(!isReloading)
-        })
-    }
-
     const deleteUser = (id: string) => {
         const contactDoc = doc(db, "Contacts", id)
         deleteDoc(contactDoc).then(() => {
             setIsReloading(!isReloading)
+            playDelete();
         })
     }
     const saveNewContact = (data: any) => {
         addDoc(contactsCollection, data).then(() => {
             setIsReloading(!isReloading)
             setIsAdding(false)
+            playContactAdded();
         })
     }
     return (
@@ -67,7 +66,10 @@ const Contacts = (props: any) => {
                 >
 
                     <span className='AddContact Hover'
-                        onClick={() => setIsAdding(true)}
+                        onClick={() => {
+                            play()
+                            setIsAdding(true)
+                        }}
                     >+</span>
                 </div>
             </div>
