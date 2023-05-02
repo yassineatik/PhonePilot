@@ -3,15 +3,21 @@ import Image from 'next/image'
 import { UpdateButton, DeleteButton, PrimaryButton } from '../../core/Buttons'
 import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { db } from '@/pages/api/firebase';
+import { LoadingButton } from '@mui/lab';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
 
 const ContactField = (props: any) => {
-    const contact = props.contact;
+    const { contact, id, onDelete } = props;
     const [name, setName] = useState(contact.name)
+    const [loading, setLoading] = useState(false);
     const [number, setNumber] = useState(contact.number)
     const [isUpdating, setIsUpdating] = useState(false)
     const [newName, setNewName] = useState(name)
     const [newNumber, setNewNumber] = useState(number)
     const updateUser = () => {
+        setLoading(true)
         const contactDoc = doc(db, "Contacts", contact.id)
         const newFields = {
             name: newName,
@@ -19,17 +25,15 @@ const ContactField = (props: any) => {
         }
         updateDoc(contactDoc, newFields).then(() => {
             setIsUpdating(false)
-            props.onChange();
+            // props.onChange();
             setNumber(newNumber)
             setName(newName)
+            setLoading(false)
         })
 
     }
     const deleteUser = () => {
-        const contactDoc = doc(db, "Contacts", contact.id)
-        deleteDoc(contactDoc).then(() => {
-            props.onChange();
-        })
+        onDelete(id)
     }
     return (
         <div className='Contact'>
@@ -63,9 +67,12 @@ const ContactField = (props: any) => {
                 {
                     isUpdating ? (
                         <>
-                            <PrimaryButton text="Save"
+                            {loading ? (
+                                <PrimaryButton text={<CircularProgress disableShrink />} />
+                            ) : <PrimaryButton text="Save"
                                 onClick={updateUser}
                             />
+                            }
                             <UpdateButton text="Cancel"
 
                                 onClick={() => {

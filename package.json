@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@mui/lab": "^5.0.0-alpha.128",
+    "@mui/material": "^5.12.2",
     "@react-three/drei": "^9.65.3",
     "@react-three/fiber": "^8.12.1",
     "@reduxjs/toolkit": "^1.9.5",

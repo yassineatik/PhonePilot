@@ -61,6 +61,13 @@
             // backdrop-filter: hue-rotate(120deg);
             // backdrop-filter: contrast(40%) !important;
             // backdrop-filter: blur(2rem);
+            background: rgba(152, 56, 56, 0.55);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(10.5px);
+            -webkit-backdrop-filter: blur(10.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
 
 
             .CardIcon {

@@ -82,6 +82,17 @@
                 flex-direction: row;
                 gap: 1rem;
                 align-items: center;
+
+                .css-1idz92c-MuiCircularProgress-svg {
+                    width: 2rem;
+                    height: 2rem;
+                    transition: none;
+                    animation: none !important;
+                }
+
+                .MuiLinearProgress-bar {
+                    transition: none;
+                }
             }
 
         }
