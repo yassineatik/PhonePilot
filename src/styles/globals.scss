@@ -94,6 +94,9 @@ auto;
   transition: all 0.2s ease;
   text-transform: uppercase;
   font-family: "Cocon";
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     outline: $color;

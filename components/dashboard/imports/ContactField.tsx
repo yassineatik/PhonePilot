@@ -6,14 +6,15 @@ import { db } from '@/pages/api/firebase';
 import { LoadingButton } from '@mui/lab';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
 const ContactField = (props: any) => {
     const { contact, id, onDelete } = props;
     const [name, setName] = useState(contact.name)
     const [loading, setLoading] = useState(false);
     const [number, setNumber] = useState(contact.number)
-    const [isUpdating, setIsUpdating] = useState(false)
+    const [isUpdating, setIsUpdating] = useState(props.isUpdating ? props.isUpdating : false)
+    const [isDeleting, setIsDeleting] = useState(false)
     const [newName, setNewName] = useState(name)
     const [newNumber, setNewNumber] = useState(number)
     const updateUser = () => {
@@ -33,7 +34,9 @@ const ContactField = (props: any) => {
 
     }
     const deleteUser = () => {
+        setLoading(true)
         onDelete(id)
+        setLoading(false)
     }
     return (
         <div className='Contact'>
@@ -68,7 +71,7 @@ const ContactField = (props: any) => {
                     isUpdating ? (
                         <>
                             {loading ? (
-                                <PrimaryButton text={<CircularProgress disableShrink />} />
+                                <PrimaryButton text={<AiOutlineLoading3Quarters className='LoadingIcon' />} />
                             ) : <PrimaryButton text="Save"
                                 onClick={updateUser}
                             />
@@ -83,13 +86,19 @@ const ContactField = (props: any) => {
                                 }
                             />
                         </>
-                    ) : (
+                    ) : isDeleting ? (<>
+                        <DeleteButton text="Confirm"
+                            onClick={deleteUser}
+                        />
+                        <UpdateButton text="Cancel"
+                            onClick={() => setIsDeleting(false)}
+                        /></>) : (
                         <>
                             <UpdateButton text="Update"
                                 onClick={() => setIsUpdating(true)}
                             />
                             <DeleteButton text="Delete"
-                                onClick={deleteUser}
+                                onClick={() => setIsDeleting(true)}
                             />
                         </>
 

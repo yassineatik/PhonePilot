@@ -22,6 +22,23 @@
             flex-direction: row;
             justify-content: space-between;
             color: white;
+            align-items: center;
+
+            .Actions {
+                display: flex;
+                gap: 1rem;
+
+                .AddContact {
+                    background-color: $C2;
+                    color: $C1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0.1rem 0.8rem;
+                    border-radius: 50%;
+                    font-size: 3rem;
+                }
+            }
         }
 
         .ContactsList {
@@ -83,18 +100,25 @@
                 gap: 1rem;
                 align-items: center;
 
-                .css-1idz92c-MuiCircularProgress-svg {
-                    width: 2rem;
-                    height: 2rem;
-                    transition: none;
-                    animation: none !important;
-                }
+                .LoadingIcon {
+                    width: 100% !important;
+                    height: 100% !important;
+                    animation: loading 1s infinite;
 
-                .MuiLinearProgress-bar {
-                    transition: none;
+                    @keyframes loading {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+
+                        100% {
+
+                            transform: rotate(360deg);
+                        }
+                    }
                 }
             }
 
         }
+
     }
 }
