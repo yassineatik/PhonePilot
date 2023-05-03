@@ -6,7 +6,7 @@ const Footer = () => {
         <div >
             <footer className='Footer'>
                 <hr></hr>
-                <p className='C3'>Website Made With
+                <p className='C3'> Made With
                     <Image src="/icons/love.svg" width={100} height={40} alt='Love' />
                     By <span className='C2'
                         onClick={() => window.open('https://www.linkedin.com/in/yassineatik/', "_blank")}

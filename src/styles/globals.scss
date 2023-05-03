@@ -7,6 +7,10 @@
   src: url("/fonts/CoconRegularFont.otf") format("opentype");
 }
 
+html {
+  background-color: #000000;
+}
+
 // responsiveness : 
 @mixin respond-to($breakpoint) {
   @if $breakpoint==small {
@@ -240,6 +244,13 @@ html {
 
 
 
+
+@include respond-to("medium") {
+  html {
+    font-size: 13px;
+  }
+}
+
 @include respond-to("small") {
   .Page {
     padding: 0.2em 1em;
@@ -253,7 +264,6 @@ html {
 
 }
 
-;
 // @include respond-to("medium");
 // @include respond-to("large");
 // imports

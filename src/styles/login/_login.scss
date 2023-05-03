@@ -97,4 +97,30 @@
             }
         }
     }
+
+    @include respond-to("small") {
+
+        .LoginContent {
+
+            .LoginForm {
+
+                input {
+                    max-width: 400px !important;
+                    // width: 90%;
+                    min-width: 300px !important;
+
+                    outline: none;
+                    border: 2px solid #F6F662;
+
+                }
+
+                .Button {
+                    max-width: 400px !important;
+                    min-width: 300px !important;
+                    width: unset !important;
+                }
+            }
+        }
+
+    }
 }

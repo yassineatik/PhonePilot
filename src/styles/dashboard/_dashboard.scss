@@ -100,7 +100,8 @@
 
                     .ContactNumber {
                         letter-spacing: 0.1rem;
-                        font-weight: 600;
+                        font-size: 1.1rem;
+                        // font-weight: 600;
                     }
                 }
 
@@ -140,5 +141,28 @@
 
         }
 
+    }
+
+    @include respond-to("small") {
+        .Contacts {
+            width: 100%;
+
+            .Contact {
+                gap: 1rem;
+            }
+
+            img {
+                width: 30px;
+
+            }
+
+            .ContactInfos {
+                max-width: 80%;
+
+                input {
+                    width: 100%;
+                }
+            }
+        }
     }
 }

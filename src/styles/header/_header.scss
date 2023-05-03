@@ -49,4 +49,23 @@
             max-height: 100px;
         }
     }
+
+    .DashboardHeader {
+        .Logo {
+            max-width: 170px;
+            max-height: 90px;
+        }
+
+        .UserButton {
+
+            // outline: 1px solid $C2;
+            padding: 0.2rem 1rem 0.2rem 1rem;
+
+            img {
+                width: 30px;
+            }
+        }
+
+        // .Contacts{}
+    }
 }

@@ -31,11 +31,11 @@ const AddContact = (props: any) => {
             <div className='ContactData'>
                 <Image src="/icons/contact.svg" width={40} height={40} alt='ContactIcon' />
                 <div className="ContactInfos">
-                    <input className='ContactName' type='text' value={newName} onChange={(e: any) => setNewName(e.target.value)} />
+                    <input className='ContactName' placeholder='Contact name' type='text' value={newName} onChange={(e: any) => setNewName(e.target.value)} />
 
                     <div className='NumberContainer'>
                         <Image src="/icons/phone.svg" width={18} height={18} alt='Phone' />
-                        <input className='ContactNumber' value={newNumber} onChange={(e: any) => setNewNumber(e.target.value)} />
+                        <input className='ContactNumber' placeholder='Contact number' value={newNumber} onChange={(e: any) => setNewNumber(e.target.value)} />
                     </div>
                 </div>
             </div>
