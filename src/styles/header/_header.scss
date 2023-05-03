@@ -37,3 +37,16 @@
         align-items: center;
     }
 }
+
+
+@include respond-to("small") {
+    .Header {
+        // background-color: white;
+        gap: 0.2rem;
+
+        .Logo {
+            max-width: 190px;
+            max-height: 100px;
+        }
+    }
+}

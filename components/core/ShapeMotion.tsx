@@ -13,7 +13,7 @@ const ShapeMotion = (props: any) => {
             whileTap={{ scale: 1.2, opacity: 1, cursor: "url('/Grabbing.svg'),auto" }}
             whileHover={{
                 cursor: "url('/Grab.svg'),auto",
-                scale: 1.2,
+                scale: 1.1,
                 opacity: 1
             }}
             whileDrag={{

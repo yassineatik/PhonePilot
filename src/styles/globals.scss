@@ -7,6 +7,33 @@
   src: url("/fonts/CoconRegularFont.otf") format("opentype");
 }
 
+// responsiveness : 
+@mixin respond-to($breakpoint) {
+  @if $breakpoint==small {
+    @media (max-width: 720px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint==medium {
+    @media (max-width: 1080px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint==large {
+    @media (max-width: 1280px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint==xlarge {
+    @media (max-width: 1420px) {
+      @content;
+    }
+  }
+}
+
 // Palette
 $C1 : #000000;
 $C2 : #F6F662;
@@ -97,6 +124,7 @@ auto;
   display: flex;
   align-items: center;
   justify-content: center;
+
 
   &:hover {
     outline: $color;
@@ -209,8 +237,28 @@ html {
   }
 }
 
+
+
+
+@include respond-to("small") {
+  .Page {
+    padding: 0.2em 1em;
+
+
+  }
+
+  html {
+    font-size: 10px;
+  }
+
+}
+
+;
+// @include respond-to("medium");
+// @include respond-to("large");
 // imports
 @import 'header/header';
 @import 'homePage/homePage';
 @import 'login/login';
 @import 'dashboard/dashboard';
+@import 'footer/footer';

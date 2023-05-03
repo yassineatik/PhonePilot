@@ -48,10 +48,54 @@
         z-index: 100;
         aspect-ratio: 2/1.5;
 
-        .dContainer {
+    }
+}
+
+@include respond-to("small") {
+    .Landing {
+        display: flex;
+        flex-direction: column;
+
+        .Left {
+            max-width: unset;
+            min-width: unset;
+            width: unset;
+            justify-content: center;
+            align-self: center;
             width: 100%;
-            height: 100%;
-            aspect-ratio: 2/2;
+            gap: 3rem;
+            min-height: 60vh;
+
+            .Title,
+            .Title span {
+                font-size: 3.7rem;
+                text-align: center;
+            }
+
+            .Description {
+                text-align: center;
+                font-size: 1.8rem;
+                // max-width: 80%;
+                // width: 80%;
+                padding: 0 1rem;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+        .Right {
+            width: fit-content;
+            min-width: 100%;
+            justify-content: center;
+            max-width: 100%;
+            overflow: hidden;
+            // width: fit-content;
+            // max-heigxht: 40rem;
+            height: 50vh;
+
+            .dContainer {}
         }
     }
 }

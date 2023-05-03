@@ -27,7 +27,7 @@ const Card = (props: any) => {
                 transition={{ type: "spring", stiffness: 200, damping: 10 }}
                 whileHover={{
                     // cursor: 'grab',
-                    scale: 1.04,
+                    scale: 1.00001,
                 }}
                 ref={cardRef}
             >

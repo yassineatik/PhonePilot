@@ -1,0 +1,52 @@
+.Footer {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    // background-color: aliceblue;
+    position: relative;
+
+    hr {
+        position: absolute;
+        left: -20%;
+        width: 200%;
+        margin-bottom: 0.4rem;
+    }
+
+    p {
+        margin-top: 0.5rem;
+        margin-bottom: 0.2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+
+        img {
+            animation: floating 2s infinite;
+
+            @keyframes floating {
+                0% {
+                    transform: translateY(-4px);
+                }
+
+                50% {
+                    transform: translateY(1px);
+                }
+
+                100% {
+                    transform: translateY(-4px);
+                }
+            }
+        }
+
+        .C2 {
+            // font-weight: 600;
+            font-family: Cocon;
+            margin-left: 0.2rem;
+            cursor: $hover;
+        }
+    }
+
+    text-align: center;
+}

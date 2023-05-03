@@ -92,4 +92,39 @@
         }
 
     }
+
+    @include respond-to("small") {
+        .box1:first-of-type {
+            // background-color: wheat;
+            width: fit-content;
+            top: 55%;
+            left: 80%;
+        }
+
+        .Row {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+
+            .Card {
+                // max-width: 300px;
+                max-height: 300px;
+
+                .CardTitle {
+                    font-size: 3rem;
+                }
+            }
+        }
+
+        .LastShape {
+            left: -20% !important;
+
+            img {
+                max-width: 200px;
+                max-height: 150px;
+            }
+        }
+
+
+    }
 }

@@ -6,6 +6,7 @@ import { useRef } from 'react'
 import ShapeMotion from '../../components/core/ShapeMotion'
 import Landing from '../../components/Home/Landing'
 import Cards from '../../components/Home/Cards'
+import Footer from '../../components/core/Footer'
 
 
 
@@ -33,6 +34,7 @@ export default function Home() {
         <Landing />
         <Cards />
       </div>
+      <Footer />
     </div >
   )
 }
