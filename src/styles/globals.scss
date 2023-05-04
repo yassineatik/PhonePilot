@@ -222,25 +222,6 @@ html {
 
 
 
-@media screen and (min-width: 1200px) {
-  html {
-    font-size: 20px !important;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  html {
-    font-size: 26px !important;
-  }
-}
-
-
-@media screen and (min-width: 1000px) {
-  html {
-    font-size: 16px !important;
-  }
-}
-
 
 
 
@@ -262,6 +243,18 @@ html {
     font-size: 10px;
   }
 
+}
+
+@include respond-to("xlarge") {
+  html {
+    font-size: 22px;
+  }
+}
+
+@include respond-to("large") {
+  html {
+    font-size: 18px
+  }
 }
 
 // @include respond-to("medium");
