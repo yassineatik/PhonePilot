@@ -36,6 +36,12 @@ html {
       @content;
     }
   }
+
+  @else if $breakpoint==xxlarge {
+    @media (max-width: 2250px) {
+      @content;
+    }
+  }
 }
 
 // Palette
@@ -195,10 +201,6 @@ auto;
   }
 }
 
-
-
-
-
 .logo-animation {
   animation: logo 1s ease forwards;
   width: 100%;
@@ -226,6 +228,27 @@ html {
 
 
 
+
+
+
+@include respond-to("xxlarge") {
+  html {
+    font-size: 20px;
+  }
+}
+
+@include respond-to("xlarge") {
+  html {
+    font-size: 20px;
+  }
+}
+
+@include respond-to("large") {
+  html {
+    font-size: 18px;
+  }
+}
+
 @include respond-to("medium") {
   html {
     font-size: 13px;
@@ -245,20 +268,6 @@ html {
 
 }
 
-@include respond-to("xlarge") {
-  html {
-    font-size: 28px;
-  }
-}
-
-@include respond-to("large") {
-  html {
-    font-size: 18px
-  }
-}
-
-// @include respond-to("medium");
-// @include respond-to("large");
 // imports
 @import 'header/header';
 @import 'homePage/homePage';

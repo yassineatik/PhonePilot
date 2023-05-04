@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Tilt from 'react-parallax-tilt';
 import ShapeMotion from "../../core/ShapeMotion";
 import { useRef } from "react";
+import { red } from "@mui/material/colors";
 
 
 const Card = (props: any) => {

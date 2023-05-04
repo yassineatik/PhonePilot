@@ -49,10 +49,10 @@
         .Card {
             padding: 1rem;
             border-radius: 25px;
-            max-width: 250px;
-            min-width: 250px;
-            min-height: 250px;
-            max-height: 250px;
+            max-width: 14rem;
+            min-width: 14rem;
+            min-height: 14rem;
+            max-height: 14rem;
             // background: linear-gradient(111.49deg, rgba(255, 255, 255, 0.3) -8.95%, rgba(255, 255, 255, 0.01) 114%);
             /* Note: backdrop-filter has minimal browser support */
 
@@ -86,12 +86,15 @@
 
             .CardTitle {
                 min-width: 230px;
-                font-size: 1.9rem;
-                line-height: 30px;
+                font-size: 1.7rem;
+                max-width: 250px;
+                // line-height: 11px;
+                line-height: 2rem;
             }
         }
 
     }
+
 
     @include respond-to("small") {
         .box1:first-of-type {
@@ -114,6 +117,9 @@
                     font-size: 3rem;
                 }
             }
+
+
+
         }
 
         .LastShape {

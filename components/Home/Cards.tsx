@@ -35,7 +35,7 @@ const Cards = () => {
                     color="#E8E856"
                 />
                 <Card
-                    text="Delete Existing Contact"
+                    text="Delete Existed Contact"
                     icon="delete"
                     color="#666647"
                 />
