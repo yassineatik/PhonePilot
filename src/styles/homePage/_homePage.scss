@@ -83,10 +83,6 @@
 
 .Home {
     @include respond-to("small") {
-        .box1:last-child {
-            // background-color: wheat;
-            // width: fit-content;
-        }
 
         .Content {
             gap: 10rem;
