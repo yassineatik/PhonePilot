@@ -1,16 +1,18 @@
 import Image from 'next/image'
-import React, { useEffect, useReducer, useState, useMemo } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { auth } from "../../src/pages/api/firebase";
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { useRouter } from 'next/router';
-import { addDoc, collection, getDocs, orderBy, query, where } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, where } from 'firebase/firestore';
 import { db } from "../../src/pages/api/firebase";
-import { DeleteButton, UpdateButton } from '../core/Buttons'
 import ContactField from './imports/ContactField'
-import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { toast } from "react-toastify"
 import AddContact from './imports/AddContact';
 import useSound from 'use-sound'
+import { read, utils, writeFile } from 'xlsx';
+
+import { FaFileExport } from 'react-icons/fa'
+import { getDatabase, ref, orderByValue, orderByChild } from "firebase/database";
+
 
 
 
@@ -18,11 +20,13 @@ import useSound from 'use-sound'
 const Contacts = (props: any) => {
     const [play]: any = useSound('/sounds/addContact.mp3', { volume: 0.4 });
     const [contacts, setContacts]: any = useState([]);
+    const [exportContact, setExportContact]: any = useState([]);
     const contactsCollection = collection(db, "Contacts");
     const [isReloading, setIsReloading]: any = useState(true);
     const [isAdding, setIsAdding]: any = useState(false);
     const [playDelete]: any = useSound('/sounds/delete.mp3', { volume: 0.4 });
     const [playContactAdded]: any = useSound('/sounds/contactAdded.mp3', { volume: 0.2 });
+    // const [sortBy, setSortBy] = useState("dat");
 
 
 
@@ -36,9 +40,8 @@ const Contacts = (props: any) => {
                     setContacts(data.docs.map((doc: any) => ({ ...doc.data(), id: doc.id })))
                 }).catch((err) => {
                     toast.error(err)
-                    console.log(err)
+                    // console.log(err)
                 });
-                console.log("yasine")
             }
 
             getContacts()
@@ -58,6 +61,26 @@ const Contacts = (props: any) => {
             playContactAdded();
         })
     }
+    const exportContacts = () => {
+        const filteredData = contacts.map(({ id, user_id, created_at, ...rest }) => rest);
+        // console.log(filteredData)
+        const worksheet = utils.json_to_sheet(filteredData);
+        const workbook = utils.book_new();
+        utils.book_append_sheet(workbook, worksheet, "Dates");
+        writeFile(workbook, "Contacts.xlsx", { compression: true });
+    }
+    // const sortContacts = (prop: string) => {
+    function sortContacts(option: any) {
+        const sortedContacts = [...contacts];
+        if (option === "created_at") {
+            sortedContacts.sort((a, b) => b.created_at - a.created_at);
+        } else if (option === "name") {
+            sortedContacts.sort((a, b) => a.name.localeCompare(b.name));
+        }
+        setContacts(sortedContacts);
+    }
+    // }
+
     return (
         <div className='Contacts'>
             <div className="Title">
@@ -71,6 +94,14 @@ const Contacts = (props: any) => {
                             setIsAdding(true)
                         }}
                     >+</span>
+                    <select
+                        onChange={(e) => sortContacts(e.target.value)}
+                        defaultValue={"none"}
+                    >
+                        <option value="" disabled selected>SORT</option>
+                        <option value="created_at">Date</option>
+                        <option value="name">Name</option>
+                    </select>
                 </div>
             </div>
             <div className="ContactsList">
@@ -92,7 +123,7 @@ const Contacts = (props: any) => {
                     )
                 })}
             </div>
-        </div>
+        </div >
     )
 }
 

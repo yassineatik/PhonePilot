@@ -37,7 +37,8 @@
     "typescript": "5.0.4",
     "use-sound": "^4.0.1",
     "webgi": "^0.0.1",
-    "webgl": "^0.0.7"
+    "webgl": "^0.0.7",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.19.3/xlsx-0.19.3.tgz"
   },
   "devDependencies": {
     "file-loader": "^6.2.0"
