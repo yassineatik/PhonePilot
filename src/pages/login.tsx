@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import { auth } from './api/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import Router, { useRouter } from 'next/router';
+import Head from 'next/head';
 
 
 
@@ -57,32 +58,37 @@ const Login = () => {
         // }
     };
     return (
-        <div className='Login Page'>
-            <div className='LoginContent'>
-                <Header />
-                <ShapeMotion img="/shapes/Vector-3.svg"
-                    dragConstraints={{ left: "100%", right: "100%", top: 0, bottom: 10 }} />
-                <ShapeMotion img="/shapes/Ellipse 2.svg" className="box2"
-                    dragConstraints={{ left: "100%", right: "100%", top: 0, bottom: 10 }} />
-                <div className="LoginForm">
-                    <h2 className='LoginTitle'>Sign In</h2>
-                    <input placeholder='E-mail' type='text'
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input placeholder='Password' type='password'
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
+        <>
+            <Head>
+                <title>PhonePilot - Login</title>
+            </Head>
+            <div className='Login Page'>
+                <div className='LoginContent'>
+                    <Header />
+                    <ShapeMotion img="/shapes/Vector-3.svg"
+                        dragConstraints={{ left: "100%", right: "100%", top: 0, bottom: 10 }} />
+                    <ShapeMotion img="/shapes/Ellipse 2.svg" className="box2"
+                        dragConstraints={{ left: "100%", right: "100%", top: 0, bottom: 10 }} />
+                    <div className="LoginForm">
+                        <h2 className='LoginTitle'>Sign In</h2>
+                        <input placeholder='E-mail' type='text'
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <input placeholder='Password' type='password'
+                            onChange={(e) => setPassword(e.target.value)}
+                            value={password}
 
-                    />
-                    <PrimaryButton text="Login"
-                        onClick={handleLogin}
-                    />
-                    <p>Don&apos;t have an account ? <span
-                        onClick={() => Router.push('/register')}
-                    >Create Account</span></p>
+                        />
+                        <PrimaryButton text="Login"
+                            onClick={handleLogin}
+                        />
+                        <p>Don&apos;t have an account ? <span
+                            onClick={() => Router.push('/register')}
+                        >Create Account</span></p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

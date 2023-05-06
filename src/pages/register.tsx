@@ -10,6 +10,7 @@ import { auth } from './api/firebase'
 import Router, { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import { stringify } from 'querystring'
+import Head from 'next/head'
 
 
 
@@ -72,35 +73,40 @@ const Register = () => {
 
 
     return (
-        <div className='Login Page'>
-            <div className='LoginContent'>
-                <Header />
-                <ShapeMotion img="/shapes/Vector-3.svg"
-                    dragConstraints={{ left: "100%", right: "100%", top: 0, bottom: 10 }} />
-                <ShapeMotion img="/shapes/Ellipse 2.svg" className="box2"
-                    dragConstraints={{ left: "100%", right: "100%", top: 0, bottom: 10 }} />
-                <div className="LoginForm">
-                    <h2 className='LoginTitle'>Sign Up</h2>
-                    <input placeholder='Full Name' type='text'
-                        onChange={(e) => { setDisplayName(e.target.value) }}
-                    />
-                    <input placeholder='E-mail' type='text'
+        <>
+            <Head>
+                <title>PhonePilot - Register</title>
+            </Head>
+            <div className='Login Page'>
+                <div className='LoginContent'>
+                    <Header />
+                    <ShapeMotion img="/shapes/Vector-3.svg"
+                        dragConstraints={{ left: "100%", right: "100%", top: 0, bottom: 10 }} />
+                    <ShapeMotion img="/shapes/Ellipse 2.svg" className="box2"
+                        dragConstraints={{ left: "100%", right: "100%", top: 0, bottom: 10 }} />
+                    <div className="LoginForm">
+                        <h2 className='LoginTitle'>Sign Up</h2>
+                        <input placeholder='Full Name' type='text'
+                            onChange={(e) => { setDisplayName(e.target.value) }}
+                        />
+                        <input placeholder='E-mail' type='text'
 
-                        onChange={(e) => { setEmail(e.target.value) }}
-                    />
-                    <input placeholder='Password' type='password'
-                        onChange={(e) => { setPassword(e.target.value) }}
+                            onChange={(e) => { setEmail(e.target.value) }}
+                        />
+                        <input placeholder='Password' type='password'
+                            onChange={(e) => { setPassword(e.target.value) }}
 
-                    />
-                    <PrimaryButton text="Register"
-                        onClick={handleRegister}
-                    />
-                    <p>Already have an account ? <span
-                        onClick={() => Router.push('/login')}
-                    >Login Now</span></p>
+                        />
+                        <PrimaryButton text="Register"
+                            onClick={handleRegister}
+                        />
+                        <p>Already have an account ? <span
+                            onClick={() => Router.push('/login')}
+                        >Login Now</span></p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

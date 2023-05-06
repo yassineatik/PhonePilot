@@ -13,28 +13,33 @@ import Footer from '../../components/core/Footer'
 export default function Home() {
   const parentRef = useRef(null)
   return (
-    <div className='Home Page'>
-      <div style={{
-        position: 'relative',
-      }} ref={parentRef}
-        className='HeaderContainer'
-      >
+    <>
+      <Head>
+        <title>PhonePilot - Manage Your Contacts</title>
+      </Head>
+      <div className='Home Page'>
+        <div style={{
+          position: 'relative',
+        }} ref={parentRef}
+          className='HeaderContainer'
+        >
 
-        <Header />
-        <ShapeMotion img="/shapes/Vector-3.svg" ref={parentRef}
-          dragConstraints={{ left: "100%", right: "100%", top: 0, bottom: 10 }} />
-      </div>
+          <Header />
+          <ShapeMotion img="/shapes/Vector-3.svg" ref={parentRef}
+            dragConstraints={{ left: "100%", right: "100%", top: 0, bottom: 10 }} />
+        </div>
 
-      {/* <Image src="/shapes/Vector-2.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape2' /> */}
-      {/* <Image src="/shapes/Vector-1.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape1' /> */}
-      {/* <Image src="/shapes/Vector.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape4' /> */}
-      {/* <Image src="/shapes/Ellipse 2.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape5' /> */}
-      <div className='Content'>
+        {/* <Image src="/shapes/Vector-2.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape2' /> */}
+        {/* <Image src="/shapes/Vector-1.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape1' /> */}
+        {/* <Image src="/shapes/Vector.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape4' /> */}
+        {/* <Image src="/shapes/Ellipse 2.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape5' /> */}
+        <div className='Content'>
 
-        <Landing />
-        <Cards />
-      </div>
-      <Footer />
-    </div >
+          <Landing />
+          <Cards />
+        </div>
+        <Footer />
+      </div >
+    </>
   )
 }

@@ -96,7 +96,6 @@ const Contacts = (props: any) => {
                     >+</span>
                     <select
                         onChange={(e) => sortContacts(e.target.value)}
-                        defaultValue={"none"}
                     >
                         <option value="" disabled selected>SORT</option>
                         <option value="created_at">Date</option>

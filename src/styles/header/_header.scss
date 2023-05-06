@@ -21,21 +21,88 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    // min-height: 12rem;
+    align-items: center !important;
+    // max-height: 12rem;
+    padding-top: 1rem;
+    padding-bottom: 0.6rem;
 
-    .UserButton {
+
+    .UserDiv {
         background-color: transparent;
         width: fit-content;
         height: fit-content;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         border: none;
         outline: 2px $C2 solid;
         color: white;
-        padding: 0.4rem 1rem 0.4rem 1rem;
+        padding: 0.4rem 0.7rem 0.7rem 0.7rem;
         border-radius: 2rem;
         font-family: 'Cocon';
         display: flex;
         align-items: center;
+        flex-direction: column;
+        position: relative;
+        gap: 0.4rem;
+
+        &.Open {
+            border-radius: 1.4rem 1.4rem 0rem 0rem !important;
+        }
+
+
+        p {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .Menu {
+            list-style: none;
+            font-size: 1rem;
+            white-space: nowrap;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: absolute;
+            top: 100%;
+            padding: 0.7rem 0rem;
+            border: 2px solid $C2;
+            z-index: 1000;
+            border-radius: 0 0 0.6rem 0.6rem;
+            background-color: black;
+            width: 100%;
+
+            li {
+                border-bottom: 1px solid rgba($color: #b4a4a4, $alpha: 0.6);
+                padding-bottom: 0.2rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 1rem;
+                align-items: center;
+                padding: 0.4rem 0.75rem;
+
+                &:hover {
+                    background-color: $C3;
+                }
+            }
+        }
     }
+
+    // .UserButton {
+    //     background-color: transparent;
+    //     width: fit-content;
+    //     height: fit-content;
+    //     font-size: 1.5rem;
+    //     border: none;
+    //     color: white;
+    //     border-radius: 2rem;
+    //     font-family: 'Cocon';
+    //     display: flex;
+    //     align-items: center;
+    //     outline: 2px $C2 solid;
+    //     // padding: 1rem;
+    // }
 }
 
 
@@ -56,12 +123,13 @@
             max-height: 90px;
         }
 
-        .UserButton {
+        .UserDiv {
 
             outline: none;
             white-space: nowrap;
             border: 2px solid $C2;
             padding: 0.2rem 1rem 0.2rem 1rem;
+            border-radius: 3rem;
 
             img {
                 width: 30px;

@@ -43,8 +43,10 @@ const Cards = () => {
                     className="LastShape"
                     dragConstraints={{ left: 100, right: 200, top: 100, bottom: 100 }} />
             </div>
+
         </div>
         // <h1>hi</h1>
+
     )
 }
 
