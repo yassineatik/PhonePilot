@@ -62,7 +62,7 @@ const Contacts = (props: any) => {
         })
     }
     const exportContacts = () => {
-        const filteredData = contacts.map(({ id, user_id, created_at, ...rest }) => rest);
+        const filteredData: any = contacts.map(({ id, user_id, created_at, ...rest }: { id: string, user_id: string, created_at: string, [key: string]: any }) => rest);
         // console.log(filteredData)
         const worksheet = utils.json_to_sheet(filteredData);
         const workbook = utils.book_new();
