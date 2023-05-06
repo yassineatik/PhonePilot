@@ -83,7 +83,6 @@
 
 .Home {
     @include respond-to("small") {
-
         .Content {
             gap: 10rem;
         }
