@@ -7,10 +7,12 @@ import { getAuth, updateProfile } from 'firebase/auth';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from './api/firebase'
 // import Link from 'react-dom'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import { stringify } from 'querystring'
 import Head from 'next/head'
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
+
 
 
 
@@ -20,6 +22,8 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const Router = useRouter();
     const { user, loading }: any = useAuthState(auth)
+    const [isLoading, setIsLoading] = useState(false);
+
 
     const [userInformation, setUserInformation] = useState({});
 
@@ -30,14 +34,20 @@ const Register = () => {
 
     // const handleRegister = async () => {
     const handleRegister = async () => {
+        setIsLoading(!isLoading)
+
         const auth: any = getAuth()
         if (!email || !password || !displayName) {
+            setIsLoading(false)
             toast.error("All fields are required", {
                 position: toast.POSITION.TOP_LEFT
 
             })
         } else {
+
             if (!email.includes("@")) {
+                setIsLoading(false)
+
                 toast.error("Enter a valid email address", {
                     position: toast.POSITION.TOP_LEFT
                 })
@@ -48,16 +58,14 @@ const Register = () => {
                     const user = userCredential.user;
                     await updateProfile(auth.currentUser, { displayName }).then(result => {
                         console.log(result)
+                        setIsLoading(false)
                     })
                     console.log("user : : : ", user)
                     toast.success("Registered Successfully", {
                         position: toast.POSITION.TOP_LEFT
                     });
                 }).catch(err => {
-
-                    // toast.error("err", {
-                    //     position: toast.POSITION.TOP_LEFT
-                    // });
+                    setIsLoading(false)
                     const error = stringify(err);
                     if (error.includes("email-already-in-use")) {
                         toast.error("email aready in use", {
@@ -76,6 +84,7 @@ const Register = () => {
         <>
             <Head>
                 <title>PhonePilot - Register</title>
+                <link rel="icon" type="image/x-icon" href="/favicon.png" />
             </Head>
             <div className='Login Page'>
                 <div className='LoginContent'>
@@ -97,9 +106,12 @@ const Register = () => {
                             onChange={(e) => { setPassword(e.target.value) }}
 
                         />
-                        <PrimaryButton text="Register"
+                        {isLoading ? (
+                            <PrimaryButton text={<AiOutlineLoading3Quarters className='LoadingIcon' />} />
+                        ) : <PrimaryButton text="Register"
                             onClick={handleRegister}
                         />
+                        }
                         <p>Already have an account ? <span
                             onClick={() => Router.push('/login')}
                         >Login Now</span></p>

@@ -1,20 +1,22 @@
 import Header from '../../components/core/Header'
 import ShapeMotion from '../../components/core/ShapeMotion'
 import { PrimaryButton } from '../../components/core/Buttons'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { ToastContainer, toast } from 'react-toastify';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { toast } from 'react-toastify';
 import React, { useEffect, useState } from 'react'
 import { auth } from './api/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
+
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
 
 
 
 
 const Login = () => {
-
+    const [isLoading, setIsLoading] = useState(false);
     const Router = useRouter()
     const [authUser, setAuthUser]: any = useState()
     useEffect(() => {
@@ -34,9 +36,11 @@ const Login = () => {
 
 
     const handleLogin = () => {
+        setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password).then((userCredentials) => {
             console.log(userCredentials)
             if (userCredentials) {
+                setIsLoading(false);
                 // toast("Wow so easy !")
                 toast.success("Logged In Successfully", {
                     position: toast.POSITION.TOP_LEFT
@@ -44,6 +48,7 @@ const Login = () => {
                 Router.push('/dashboard')
             }
         }).catch((error) => {
+            setIsLoading(false);
             console.log(error);
             toast.error("Email or password is incorrect", {
                 position: toast.POSITION.TOP_LEFT
@@ -61,6 +66,8 @@ const Login = () => {
         <>
             <Head>
                 <title>PhonePilot - Login</title>
+                <link rel="icon" type="image/x-icon" href="/favicon.png" />
+
             </Head>
             <div className='Login Page'>
                 <div className='LoginContent'>
@@ -79,9 +86,12 @@ const Login = () => {
                             value={password}
 
                         />
-                        <PrimaryButton text="Login"
+                        {isLoading ? (
+                            <PrimaryButton text={<AiOutlineLoading3Quarters className='LoadingIcon' />} />
+                        ) : <PrimaryButton text="Login"
                             onClick={handleLogin}
                         />
+                        }
                         <p>Don&apos;t have an account ? <span
                             onClick={() => Router.push('/register')}
                         >Create Account</span></p>
