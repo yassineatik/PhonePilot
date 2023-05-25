@@ -25,6 +25,7 @@ const Contacts = (props: any) => {
     const [isAdding, setIsAdding]: any = useState(false);
     const [playDelete]: any = useSound('/sounds/delete.mp3', { volume: 0.4 });
     const [playContactAdded]: any = useSound('/sounds/contactAdded.mp3', { volume: 0.2 });
+    const [isLoading, setIsLoading] = useState(false);
     // const [sortBy, setSortBy] = useState("dat");
 
 
@@ -47,8 +48,11 @@ const Contacts = (props: any) => {
         })
     }, [isReloading])
     const deleteUser = (id: string) => {
+        setIsLoading(true)
+
         const contactDoc = doc(db, "Contacts", id)
         deleteDoc(contactDoc).then(() => {
+            setIsLoading(false)
             setIsReloading(!isReloading)
             playDelete();
         })

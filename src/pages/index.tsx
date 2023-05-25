@@ -17,6 +17,10 @@ export default function Home() {
       <Head>
         <title>PhonePilot - Manage Your Contacts</title>
         <link rel="icon" type="image/x-icon" href="/Favicon.png" />
+        <meta name='title' content='The Smart Way to Manage Your Phonebook' />
+        <meta name='author' content='Yassine Atik' />
+        <meta name="robots" content="index,follow" />
+        <meta name='description' content='Phone Pilot is the best way to manage your phone book. With Phone Pilot, you can easily create, uodate, manage, and export your contacts from anywhere. Try Phone Pilot today and see the difference!' />
       </Head>
       <div className='Home Page'>
         <div style={{
