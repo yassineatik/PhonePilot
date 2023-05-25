@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Head>
         <title>PhonePilot - Manage Your Contacts</title>
-        <link rel="icon" type="image/x-icon" href="/favicon.png" />
+        <link rel="icon" type="image/x-icon" href="/Favicon.png" />
       </Head>
       <div className='Home Page'>
         <div style={{

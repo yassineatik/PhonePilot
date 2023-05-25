@@ -84,7 +84,7 @@ const Register = () => {
         <>
             <Head>
                 <title>PhonePilot - Register</title>
-                <link rel="icon" type="image/x-icon" href="/favicon.png" />
+                <link rel="icon" type="image/x-icon" href="/Favicon.png" />
             </Head>
             <div className='Login Page'>
                 <div className='LoginContent'>

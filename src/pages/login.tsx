@@ -66,7 +66,7 @@ const Login = () => {
         <>
             <Head>
                 <title>PhonePilot - Login</title>
-                <link rel="icon" type="image/x-icon" href="/favicon.png" />
+                <link rel="icon" type="image/x-icon" href="/Favicon.png" />
 
             </Head>
             <div className='Login Page'>
