@@ -37,7 +37,6 @@
         gap: 1rem;
         max-height: 78vh;
 
-
         .Title {
             display: flex;
             flex-direction: row;
@@ -80,7 +79,6 @@
             max-height: 90vh;
             overflow: auto;
             // : :-webkit-scrollbar-button:hidden;
-
         }
 
         .Contact {
@@ -103,17 +101,35 @@
                 .ContactInfos {
                     display: flex;
                     flex-direction: column;
-                    // gap: 0.1rem;
-
-                    .ContactName {
-                        font-size: 1.1rem;
-                        letter-spacing: 0.1rem;
+                    gap: 0.2rem;
+                    .ContactNameContainer {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 0.4rem;
+                        width: 100%;
+                        align-items: center;
                     }
 
-                    .ContactNumber {
+                    input.ContactName {
+                        font-size: 0.9rem;
                         letter-spacing: 0.1rem;
-                        font-size: 1.1rem;
-                        // font-weight: 600;
+                        border: 1px solid $C2;
+                        background: none;
+                        border-radius: 1rem;
+                        padding: 0.2rem 0.5rem;
+                        width: 100%;
+                        color: aliceblue;
+                    }
+
+                    input.ContactNumber {
+                        font-size: 0.9rem;
+                        letter-spacing: 0.1rem;
+                        border: 1px solid $C2;
+                        background: none;
+                        border-radius: 1rem;
+                        padding: 0.2rem 0.5rem;
+                        width: 100%;
+                        color: aliceblue;
                     }
                 }
 
@@ -124,7 +140,6 @@
                     align-items: center;
                     gap: 0.3rem;
                 }
-
             }
 
             .Actions {
@@ -144,15 +159,12 @@
                         }
 
                         100% {
-
                             transform: rotate(360deg);
                         }
                     }
                 }
             }
-
         }
-
     }
 
     @include respond-to("small") {
@@ -165,7 +177,6 @@
 
             img {
                 width: 30px;
-
             }
 
             .ContactInfos {
@@ -177,4 +188,8 @@
             }
         }
     }
+}
+.ContactName {
+    background-color: none;
+    border: $C2;
 }

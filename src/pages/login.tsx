@@ -20,6 +20,7 @@ const Login = () => {
     const Router = useRouter()
     const [authUser, setAuthUser]: any = useState()
     useEffect(() => {
+        Router.prefetch('/dashboard')
         const listen = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setAuthUser(user)

@@ -5,6 +5,8 @@ import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { db } from '@/pages/api/firebase';
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import firebase from "firebase/app";
+import { MdPermContactCalendar } from "react-icons/md"
+import { BsTelephone } from "react-icons/bs"
 
 
 const AddContact = (props: any) => {
@@ -31,10 +33,13 @@ const AddContact = (props: any) => {
             <div className='ContactData'>
                 <Image src="/icons/contact.svg" width={40} height={40} alt='ContactIcon' />
                 <div className="ContactInfos">
-                    <input className='ContactName' placeholder='Contact name' type='text' value={newName} onChange={(e: any) => setNewName(e.target.value)} />
+                    <div className='ContactNameContainer'>
+                        <MdPermContactCalendar size={23} color='#F6F662' fontSize={20} />
+                        <input className='ContactName' placeholder='Contact name' type='text' value={newName} onChange={(e: any) => setNewName(e.target.value)} />
+                    </div>
 
                     <div className='NumberContainer'>
-                        <Image src="/icons/phone.svg" width={18} height={18} alt='Phone' />
+                        <BsTelephone size={24} color='#F6F662' fontSize={20} />
                         <input className='ContactNumber' placeholder='Contact number' value={newNumber} onChange={(e: any) => setNewNumber(e.target.value)} />
                     </div>
                 </div>

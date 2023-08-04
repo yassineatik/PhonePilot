@@ -8,6 +8,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import useSound from 'use-sound'
+import { MdPermContactCalendar } from 'react-icons/md';
+import { BsTelephone } from 'react-icons/bs';
 
 
 const ContactField = (props: any) => {
@@ -46,25 +48,32 @@ const ContactField = (props: any) => {
             <div className='ContactData'>
                 <Image src="/icons/contact.svg" width={40} height={40} alt='ContactIcon' />
                 <div className="ContactInfos">
-                    {isUpdating ? (
-                        <input className='ContactName' type='text' value={newName} onChange={(e: any) => setNewName(e.target.value)} />
-                    ) : (
-                        <p className='ContactName'>{name}</p>
-                    )}
-                    <div className='NumberContainer'>
-                        <Image src="/icons/phone.svg" width={18} height={18} alt='Phone' />
-                        {
-                            isUpdating ? (
-                                <>
-                                    <input className='ContactNumber' value={newNumber} onChange={(e: any) => setNewNumber(e.target.value)} />
-                                </>
-                            ) : (
-                                <>
+                    <div style={{ display: "flex", flexDirection: 'row', alignItems: "center", gap: '0.5rem' }}>
 
-                                    <p className='ContactNumber'>{number}</p>
-                                </>
-                            )
-                        }
+                        <MdPermContactCalendar size={22} color='#F6F662' fontSize={20} />
+
+                        {isUpdating ? (
+                            <input className='ContactName' type='text' value={newName} onChange={(e: any) => setNewName(e.target.value)} />
+                        ) : (
+                            <p className='ContactName'>{name}</p>
+                        )}
+                    </div>
+                    <div className='NumberContainer'>
+                        <div style={{ display: "flex", flexDirection: 'row', alignItems: "center", gap: '0.5rem' }}>
+                            <BsTelephone size={20} color='#F6F662' fontSize={20} />
+                            {
+                                isUpdating ? (
+                                    <>
+                                        <input className='ContactNumber' value={newNumber} onChange={(e: any) => setNewNumber(e.target.value)} />
+                                    </>
+                                ) : (
+                                    <>
+
+                                        <p className='ContactNumber'>{number}</p>
+                                    </>
+                                )
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
