@@ -33,11 +33,6 @@ export default function Home() {
           <ShapeMotion img="/shapes/Vector-3.svg" ref={parentRef}
             dragConstraints={{ left: "100%", right: "100%", top: 0, bottom: 10 }} />
         </div>
-
-        {/* <Image src="/shapes/Vector-2.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape2' /> */}
-        {/* <Image src="/shapes/Vector-1.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape1' /> */}
-        {/* <Image src="/shapes/Vector.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape4' /> */}
-        {/* <Image src="/shapes/Ellipse 2.svg" alt="PhonePilot" width={250} height={100} className='Shape Shape5' /> */}
         <div className='Content'>
 
           <Landing />

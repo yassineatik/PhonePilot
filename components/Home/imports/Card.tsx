@@ -21,11 +21,11 @@ const Card = (props: any) => {
                 <h1 className='CardTitle'
                     style={{ color: props.color }}
                 >{props.text}</h1>
-                <ShapeMotion img={`/icons/${props.icon}.svg`}
+                {/* <ShapeMotion img={`/icons/${props.icon}.svg`}
                     dragConstraints={cardRef}
                     className="CardIcon"
-                />
-                {/* <Image src={`/icons/${props.icon}.svg`} width={200} height={150} alt='Create' /> */}
+                /> */}
+                <Image src={`/icons/${props.icon}.svg`} width={200} height={150} alt='Create' />
             </motion.div>
         </Tilt>
     )
